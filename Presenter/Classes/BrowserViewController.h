@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BrowserViewController : UIViewController{}
+@interface BrowserViewController : UIViewController <UIWebViewDelegate>{
+    CGFloat startX;
+    CGFloat startY;
+}
 
-@property (weak, nonatomic) IBOutlet UIWebView *presenterWebView;
+@property (nonatomic, strong) IBOutlet UIWebView *presenterWebView;
 @property (nonatomic, strong) NSString *tappedURL;
 
 - (IBAction)goBackToList:(id)sender;
