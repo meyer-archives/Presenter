@@ -8,15 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BrowserViewController : UIViewController
-{
-
-    IBOutlet UIButton *BackToList;
-}
+@interface BrowserViewController : UIViewController{}
 
 @property (weak, nonatomic) IBOutlet UIWebView *presenterWebView;
 @property (nonatomic, strong) NSString *tappedURL;
 
 - (IBAction)goBackToList:(id)sender;
+- (IBAction)refreshBrowser:(id)sender;
 
 @end

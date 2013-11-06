@@ -14,11 +14,16 @@
 
 @implementation BrowserViewController
 
-// Close browser
 // TODO: Trigger this action on three-finger up swipe
 - (IBAction)goBackToList:(id)sender{
     NSLog(@"Dismiss BrowserViewController");
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)refreshBrowser:(id)sender
+{
+    [[self presenterWebView] reload];
+    NSLog(@"refresh button tapped");
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,20 +41,13 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     NSLog(@"Browser viewDidLoad -- %@", [self tappedURL]);
 
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-
     // Load URL
-    // TODO: Load from selected URL in LinkListTableView
     NSURL *url = [NSURL URLWithString:[self tappedURL]];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
-    
     [[self presenterWebView] loadRequest:req];
-
-    
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
