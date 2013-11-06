@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LinkListViewController.h
 //  Presenter
 //
 //  Created by Mike Meyer on 05/11/2013.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface LinkListViewController : UITableViewController
+
+@property (strong, nonatomic) NSMutableArray *linkListData;
 
 @end
