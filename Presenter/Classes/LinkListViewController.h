@@ -11,5 +11,6 @@
 @interface LinkListViewController : UITableViewController
 
 @property (strong, nonatomic) NSMutableArray *linkListData;
+@property (strong, nonatomic) NSString *currentURL;
 
 @end

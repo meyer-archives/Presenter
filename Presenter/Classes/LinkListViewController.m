@@ -7,6 +7,7 @@
 //
 
 #import "LinkListViewController.h"
+#import "BrowserViewController.h"
 
 @interface LinkListViewController ()
 {
@@ -34,9 +35,13 @@
     [super viewDidLoad];
     self.linkListData = [[NSMutableArray alloc] initWithObjects:@"http://demotron.dev", @"http://google.com", @"http://framerjs.com", nil];
    
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+//    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
  
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,7 +75,8 @@
 
 - (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath{
     NSLog(@"Tapped cell %d", [indexPath row]);
-
+    self.currentURL = [self.linkListData objectAtIndex:[indexPath row]];
+    
     [self performSegueWithIdentifier:@"showBrowser" sender:self];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -121,7 +127,8 @@
 
     if ([segue.identifier isEqualToString:@"showBrowser"])
     {
-//        segue.destinationViewController.tappedURL = "http://gogle.co";
+        BrowserViewController *bvc = (BrowserViewController *)segue.destinationViewController;
+        bvc.tappedURL = self.currentURL;
     }
     
     [segue destinationViewController];

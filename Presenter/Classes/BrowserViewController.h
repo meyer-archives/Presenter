@@ -12,8 +12,10 @@
 {
 
     IBOutlet UIButton *BackToList;
-    
 }
+
+@property (weak, nonatomic) IBOutlet UIWebView *presenterWebView;
+@property (nonatomic, strong) NSString *tappedURL;
 
 - (IBAction)goBackToList:(id)sender;
 

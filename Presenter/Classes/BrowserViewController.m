@@ -10,9 +10,6 @@
 
 @interface BrowserViewController ()
 
-@property (weak, nonatomic) IBOutlet UIWebView *presenterWebView;
-@property (nonatomic, strong) NSString *tappedURL;
-
 @end
 
 @implementation BrowserViewController
@@ -31,6 +28,10 @@
         // Custom initialization
     }
     return self;
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 - (void)viewDidLoad
