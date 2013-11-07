@@ -8,6 +8,7 @@
 
 #import "LinkListViewController.h"
 #import "BrowserViewController.h"
+#import "TransitionAnimator.h"
 
 @interface LinkListViewController ()
 {
@@ -92,16 +93,30 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"SEGUE:  %@", [segue identifier]);
-
-    if ([segue.identifier isEqualToString:@"showBrowser"])
-    {
-        BrowserViewController *bvc = (BrowserViewController *)segue.destinationViewController;
-        bvc.tappedURL = self.currentURL;
-    }
+    [super prepareForSegue:segue sender:sender];
+    
+    BrowserViewController *bvc = (BrowserViewController *)segue.destinationViewController;
+    bvc.tappedURL = self.currentURL;
+    bvc.transitioningDelegate = self;
+    bvc.modalPresentationStyle = UIModalPresentationCustom;
     
     [segue destinationViewController];
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source {
+    
+    TransitionAnimator *animator = [TransitionAnimator new];
+    animator.presenting = YES;
+    return animator;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    TransitionAnimator *animator = [TransitionAnimator new];
+    return animator;
 }
 
 

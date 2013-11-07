@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LinkListViewController : UITableViewController
+@interface LinkListViewController : UITableViewController <UIViewControllerTransitioningDelegate>
 
 @property (strong, nonatomic) NSMutableArray *linkListData;
 @property (strong, nonatomic) NSString *currentURL;

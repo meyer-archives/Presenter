@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF138258182B844200A02C54 /* TransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = FF138257182B844200A02C54 /* TransitionAnimator.m */; };
 		FF5631761829799200EE5AE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5631751829799100EE5AE2 /* Foundation.framework */; };
 		FF5631781829799200EE5AE2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5631771829799200EE5AE2 /* CoreGraphics.framework */; };
 		FF56317A1829799200EE5AE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5631791829799200EE5AE2 /* UIKit.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF138256182B844200A02C54 /* TransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransitionAnimator.h; path = Classes/TransitionAnimator.h; sourceTree = "<group>"; };
+		FF138257182B844200A02C54 /* TransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransitionAnimator.m; path = Classes/TransitionAnimator.m; sourceTree = "<group>"; };
 		FF5631721829799100EE5AE2 /* Presenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Presenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF5631751829799100EE5AE2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FF5631771829799200EE5AE2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,6 +130,8 @@
 				FFA61009182A10B700CF2DAE /* BrowserViewController.m */,
 				FFA6100B182A125F00CF2DAE /* LinkListViewController.h */,
 				FFA6100C182A125F00CF2DAE /* LinkListViewController.m */,
+				FF138256182B844200A02C54 /* TransitionAnimator.h */,
+				FF138257182B844200A02C54 /* TransitionAnimator.m */,
 				FF5631901829799200EE5AE2 /* Images.xcassets */,
 				FFA610001829FCC100CF2DAE /* presenter-dev.png */,
 				FF56317C1829799200EE5AE2 /* Supporting Files */,
@@ -262,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF138258182B844200A02C54 /* TransitionAnimator.m in Sources */,
 				FFA6100A182A10B700CF2DAE /* BrowserViewController.m in Sources */,
 				FF5631861829799200EE5AE2 /* AppDelegate.m in Sources */,
 				FFA6100D182A125F00CF2DAE /* LinkListViewController.m in Sources */,

@@ -45,18 +45,20 @@
 {
     [super viewDidLoad];
     NSLog(@"Browser viewDidLoad -- %@", [self tappedURL]);
+    [self.view setMultipleTouchEnabled:YES];
 
     // Full-screen webview
     self.presenterWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
     self.presenterWebView.delegate = self;
     self.presenterWebView.scalesPageToFit = YES; // TODO: Fix Framer metatag issue
-    self.presenterWebView.multipleTouchEnabled = NO;
+//    self.presenterWebView.multipleTouchEnabled = NO;
     [self.view insertSubview:self.presenterWebView atIndex:0]; // lengthy version of addSubview
 
     [self.presenterWebView.scrollView setBounces: NO];
     
     UISwipeGestureRecognizer *upSwipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(upSwipeHappened:)];
     UISwipeGestureRecognizer *downSwipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(downSwipeHappened:)];
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHappened:)];
 
     upSwipeGesture.numberOfTouchesRequired = 2;
     upSwipeGesture.cancelsTouchesInView = YES;
@@ -66,16 +68,31 @@
     downSwipeGesture.cancelsTouchesInView = YES;
     downSwipeGesture.direction = UISwipeGestureRecognizerDirectionDown;
 
+    panGesture.minimumNumberOfTouches = 2;
+    panGesture.maximumNumberOfTouches = 4;
+    panGesture.cancelsTouchesInView = YES;
+    
+    upSwipeGesture.delegate = self;
+    downSwipeGesture.delegate = self;
+    panGesture.delegate = self;
+    
     [self.presenterWebView.scrollView addGestureRecognizer:upSwipeGesture];
     [self.presenterWebView.scrollView addGestureRecognizer:downSwipeGesture];
+    [self.presenterWebView.scrollView addGestureRecognizer:panGesture];
     
-//    [self.presenterWebView addGestureRecognizer:upSwipeGesture];
-//    [self.presenterWebView addGestureRecognizer:downSwipeGesture];
+    [self.presenterWebView addGestureRecognizer:upSwipeGesture];
+    [self.presenterWebView addGestureRecognizer:downSwipeGesture];
+    [self.presenterWebView addGestureRecognizer:panGesture];
 
     // Load URL
     NSURL *url = [NSURL URLWithString:[self tappedURL]];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     [self.presenterWebView loadRequest:req];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{
@@ -90,14 +107,25 @@
     NSLog(@"webview didFailLoadWithError");
 }
 
--(void)upSwipeHappened:(id)sender {
+#pragma mark - Swipe/pan detection
+
+- (void)upSwipeHappened:(id)sender {
 	NSLog(@"UP SWIPE: close");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)downSwipeHappened:(id)sender {
+- (void)downSwipeHappened:(id)sender {
     NSLog(@"DOWN SWIPE: refresh");
     [[self presenterWebView] reload];
+}
+
+- (void)panHappened:(UIPanGestureRecognizer *)rec {
+    CGPoint vel = [rec velocityInView:self.view];
+    if(vel.y > 0){
+        NSLog(@"PAN DOWN, vx, vy: %f %f", vel.x, vel.y);
+    } else {
+        NSLog(@"PAN UP, vx, vy: %f %f", vel.x, vel.y);
+    }
 }
 
 @end

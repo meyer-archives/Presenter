@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BrowserViewController : UIViewController <UIWebViewDelegate>{
+@interface BrowserViewController : UIViewController <UIWebViewDelegate, UIGestureRecognizerDelegate>{
     CGFloat startX;
     CGFloat startY;
+    CGFloat currentVelocity;
 }
 
 @property (nonatomic, strong) IBOutlet UIWebView *presenterWebView;
