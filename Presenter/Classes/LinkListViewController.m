@@ -19,15 +19,6 @@
 
 @implementation LinkListViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     NSLog(@"LinkList viewDidLoad");
@@ -35,18 +26,11 @@
     [super viewDidLoad];
     self.linkListData = [[NSMutableArray alloc] initWithObjects:@"http://demotron.dev", @"http://google.com", @"http://framerjs.com", nil];
    
-//    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
- 
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 - (BOOL)prefersStatusBarHidden {
     return NO;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark - Table view data source

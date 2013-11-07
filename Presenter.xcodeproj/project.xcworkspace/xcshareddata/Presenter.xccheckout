@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A18151AE-8E1B-40DF-9D4D-6D611729164D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Presenter</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>30A8BEA6-1E4F-43A9-9F61-1043E312A7C1</key>
+		<string>https://github.com/meyer/Presenter.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Presenter.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>30A8BEA6-1E4F-43A9-9F61-1043E312A7C1</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/meyer/Presenter.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>30A8BEA6-1E4F-43A9-9F61-1043E312A7C1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>30A8BEA6-1E4F-43A9-9F61-1043E312A7C1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Presenter</string>
+		</dict>
+	</array>
+</dict>
+</plist>

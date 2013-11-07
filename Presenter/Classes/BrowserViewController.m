@@ -48,22 +48,34 @@
 
     // Full-screen webview
     self.presenterWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
+    self.presenterWebView.delegate = self;
     self.presenterWebView.scalesPageToFit = YES; // TODO: Fix Framer metatag issue
     self.presenterWebView.multipleTouchEnabled = NO;
     [self.view insertSubview:self.presenterWebView atIndex:0]; // lengthy version of addSubview
+
+    [self.presenterWebView.scrollView setBounces: NO];
     
-    // Pan gesture
-    UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
-	[panRecognizer setMinimumNumberOfTouches:2];
-	[panRecognizer setMaximumNumberOfTouches:3];
-    self.presenterWebView.delegate = self;
-    [[self.presenterWebView scrollView] setBounces: NO];
-	[self.presenterWebView addGestureRecognizer:panRecognizer];
-   
+    UISwipeGestureRecognizer *upSwipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(upSwipeHappened:)];
+    UISwipeGestureRecognizer *downSwipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(downSwipeHappened:)];
+
+    upSwipeGesture.numberOfTouchesRequired = 2;
+    upSwipeGesture.cancelsTouchesInView = YES;
+    upSwipeGesture.direction = UISwipeGestureRecognizerDirectionUp;
+    
+    downSwipeGesture.numberOfTouchesRequired = 2;
+    downSwipeGesture.cancelsTouchesInView = YES;
+    downSwipeGesture.direction = UISwipeGestureRecognizerDirectionDown;
+
+    [self.presenterWebView.scrollView addGestureRecognizer:upSwipeGesture];
+    [self.presenterWebView.scrollView addGestureRecognizer:downSwipeGesture];
+    
+//    [self.presenterWebView addGestureRecognizer:upSwipeGesture];
+//    [self.presenterWebView addGestureRecognizer:downSwipeGesture];
+
     // Load URL
     NSURL *url = [NSURL URLWithString:[self tappedURL]];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
-    [[self presenterWebView] loadRequest:req];
+    [self.presenterWebView loadRequest:req];
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{
@@ -78,14 +90,14 @@
     NSLog(@"webview didFailLoadWithError");
 }
 
--(void)move:(id)sender {
-	NSLog(@"See a move gesture");
+-(void)upSwipeHappened:(id)sender {
+	NSLog(@"UP SWIPE: close");
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)downSwipeHappened:(id)sender {
+    NSLog(@"DOWN SWIPE: refresh");
+    [[self presenterWebView] reload];
 }
 
 @end

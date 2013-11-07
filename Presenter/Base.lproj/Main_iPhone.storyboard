@@ -41,7 +41,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="LinkListTableView" destination="nYT-cc-We2" id="Xo2-8Z-57E"/>
-                        <segue destination="nDs-9p-agu" kind="modal" identifier="showBrowser" modalTransitionStyle="flipHorizontal" id="pT0-L7-0fO"/>
+                        <segue destination="nDs-9p-agu" kind="modal" identifier="showBrowser" modalTransitionStyle="coverVertical" id="pT0-L7-0fO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvS-TP-o0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -59,29 +59,6 @@
                     <view key="view" contentMode="scaleToFill" id="3XY-JH-wCX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ls-e6-IXc">
-                                <rect key="frame" x="278" y="526" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="goBackToList:" destination="nDs-9p-agu" eventType="touchUpInside" id="Wus-Yd-Aqc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vS0-Mn-uAb">
-                                <rect key="frame" x="20" y="518" width="53" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Refresh">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="refreshBrowser:" destination="nDs-9p-agu" eventType="touchUpInside" id="Aae-5r-rXV"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
