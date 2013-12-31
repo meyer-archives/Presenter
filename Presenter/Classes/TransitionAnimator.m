@@ -19,15 +19,21 @@
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     float scalePercentage = .9;
+
+    NSLog(@"FROM: %@",[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey]);
+    NSLog(@"TO: %@",[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey]);
+    
+    CGRect startFrame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
     CGRect endFrame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
 
+    transitionContext.containerView.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"framer-bkg.png"]];
+    
     if (self.presenting) {
         fromViewController.view.userInteractionEnabled = NO;
-        
+    
         [transitionContext.containerView addSubview:fromViewController.view];
         [transitionContext.containerView addSubview:toViewController.view];
-        
-        CGRect startFrame = endFrame;
+
         startFrame.origin.y += [[UIScreen mainScreen] bounds].size.height + 100;
         
         toViewController.view.alpha = 0;
@@ -41,7 +47,7 @@
                              fromViewController.view.alpha = 0;
                              fromViewController.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, scalePercentage, scalePercentage);
                          } completion:^(BOOL finished) {
-                             NSLog(@"From animation complete");
+                             NSLog(@"From animation complete (presenting)");
                          }];
         
         [UIView animateWithDuration:.5f
@@ -51,7 +57,7 @@
                              toViewController.view.alpha = 1;
                              toViewController.view.frame = endFrame;
                          } completion:^(BOOL finished) {
-                             NSLog(@"To animation complete");
+                             NSLog(@"To animation complete (presenting)");
                              [transitionContext completeTransition:YES];
                          }];
     }
@@ -61,9 +67,13 @@
         [transitionContext.containerView addSubview:toViewController.view];
         [transitionContext.containerView addSubview:fromViewController.view];
         
+        NSLog(@"%@", CGRectCreateDictionaryRepresentation([transitionContext.containerView bounds]));
+        
         endFrame.origin.y -= [[UIScreen mainScreen] bounds].size.height + 100;
-
+//        startFrame.origin.y += [[UIScreen mainScreen] bounds].size.height + 100;
+        
         fromViewController.view.alpha = 1;
+        fromViewController.view.frame = startFrame;
         
         toViewController.view.alpha = .5;
         toViewController.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, scalePercentage, scalePercentage);
@@ -80,7 +90,7 @@
          ];
         
         [UIView animateWithDuration:.4f
-                              delay: 0.3
+                              delay: 0.2
                             options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              toViewController.view.tintAdjustmentMode = UIViewTintAdjustmentModeAutomatic;

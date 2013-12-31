@@ -22,6 +22,8 @@
 		FF56319A1829799200EE5AE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5631791829799200EE5AE2 /* UIKit.framework */; };
 		FF5631A21829799200EE5AE2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF5631A01829799200EE5AE2 /* InfoPlist.strings */; };
 		FF5631A41829799200EE5AE2 /* PresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5631A31829799200EE5AE2 /* PresenterTests.m */; };
+		FF9FF39B182CC3F400978A5C /* framer-bkg.png in Resources */ = {isa = PBXBuildFile; fileRef = FF9FF39A182CC3F400978A5C /* framer-bkg.png */; };
+		FF9FF39D182CC4D000978A5C /* framer-bkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF9FF39C182CC4D000978A5C /* framer-bkg@2x.png */; };
 		FFA610011829FCC100CF2DAE /* presenter-dev.png in Resources */ = {isa = PBXBuildFile; fileRef = FFA610001829FCC100CF2DAE /* presenter-dev.png */; };
 		FFA6100A182A10B700CF2DAE /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA61009182A10B700CF2DAE /* BrowserViewController.m */; };
 		FFA6100D182A125F00CF2DAE /* LinkListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA6100C182A125F00CF2DAE /* LinkListViewController.m */; };
@@ -58,6 +60,8 @@
 		FF56319F1829799200EE5AE2 /* PresenterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PresenterTests-Info.plist"; sourceTree = "<group>"; };
 		FF5631A11829799200EE5AE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FF5631A31829799200EE5AE2 /* PresenterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PresenterTests.m; sourceTree = "<group>"; };
+		FF9FF39A182CC3F400978A5C /* framer-bkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "framer-bkg.png"; path = "Assets/framer-bkg.png"; sourceTree = "<group>"; };
+		FF9FF39C182CC4D000978A5C /* framer-bkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "framer-bkg@2x.png"; path = "Assets/framer-bkg@2x.png"; sourceTree = "<group>"; };
 		FFA610001829FCC100CF2DAE /* presenter-dev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "presenter-dev.png"; sourceTree = "<group>"; };
 		FFA61008182A10B700CF2DAE /* BrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrowserViewController.h; path = Classes/BrowserViewController.h; sourceTree = "<group>"; };
 		FFA61009182A10B700CF2DAE /* BrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrowserViewController.m; path = Classes/BrowserViewController.m; sourceTree = "<group>"; };
@@ -133,7 +137,7 @@
 				FF138256182B844200A02C54 /* TransitionAnimator.h */,
 				FF138257182B844200A02C54 /* TransitionAnimator.m */,
 				FF5631901829799200EE5AE2 /* Images.xcassets */,
-				FFA610001829FCC100CF2DAE /* presenter-dev.png */,
+				FF9FF399182CC3E300978A5C /* Assets */,
 				FF56317C1829799200EE5AE2 /* Supporting Files */,
 			);
 			path = Presenter;
@@ -166,6 +170,16 @@
 				FF5631A01829799200EE5AE2 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FF9FF399182CC3E300978A5C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FF9FF39A182CC3F400978A5C /* framer-bkg.png */,
+				FF9FF39C182CC4D000978A5C /* framer-bkg@2x.png */,
+				FFA610001829FCC100CF2DAE /* presenter-dev.png */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF56318C1829799200EE5AE2 /* Main_iPad.storyboard in Resources */,
+				FF9FF39D182CC4D000978A5C /* framer-bkg@2x.png in Resources */,
+				FF9FF39B182CC3F400978A5C /* framer-bkg.png in Resources */,
 				FF5631911829799200EE5AE2 /* Images.xcassets in Resources */,
 				FF5631891829799200EE5AE2 /* Main_iPhone.storyboard in Resources */,
 				FFA610011829FCC100CF2DAE /* presenter-dev.png in Resources */,

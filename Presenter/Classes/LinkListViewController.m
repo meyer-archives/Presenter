@@ -31,7 +31,7 @@
 }
 
 - (BOOL)prefersStatusBarHidden {
-    return NO;
+    return YES;
 }
 
 #pragma mark - Table view data source
